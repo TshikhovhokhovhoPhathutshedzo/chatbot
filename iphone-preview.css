@@ -1,0 +1,331 @@
+/* iPhone Preview Styles */
+.preview-container {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Desktop Preview Section */
+.desktop-preview {
+    flex: 1;
+    max-width: 500px;
+}
+
+.desktop-preview h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* iPhone Preview Section */
+.iphone-preview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+}
+
+.iphone-preview h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* iPhone Frame */
+.iphone-frame {
+    position: relative;
+    width: 280px;
+    height: 570px;
+    background: #1a1a1a;
+    border-radius: 40px;
+    padding: 8px;
+    box-shadow: 
+        0 0 0 2px #333,
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 2px #000;
+    margin-bottom: 20px;
+}
+
+/* iPhone Notch */
+.iphone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background: #000;
+    border-radius: 0 0 15px 15px;
+    z-index: 10;
+}
+
+/* iPhone Screen */
+.iphone-screen {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+}
+
+.iphone-screen iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 32px;
+    background: white;
+}
+
+/* iPhone Home Indicator */
+.iphone-home-indicator {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    z-index: 10;
+}
+
+/* iPhone Controls */
+.iphone-controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.control-btn i {
+    font-size: 16px;
+}
+
+/* iPhone Rotation States */
+.iphone-frame.landscape {
+    width: 570px;
+    height: 280px;
+    border-radius: 40px;
+}
+
+.iphone-frame.landscape .iphone-notch {
+    width: 25px;
+    height: 120px;
+    border-radius: 15px 15px 0 0;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.iphone-frame.landscape .iphone-home-indicator {
+    width: 4px;
+    height: 120px;
+    bottom: 50%;
+    left: 8px;
+    transform: translateY(50%);
+}
+
+.iphone-frame.landscape .iphone-screen {
+    border-radius: 32px;
+}
+
+.iphone-frame.landscape .iphone-screen iframe {
+    border-radius: 32px;
+}
+
+/* Fullscreen Mode */
+.iphone-frame.fullscreen {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    margin: 0;
+}
+
+.iphone-frame.fullscreen .iphone-notch,
+.iphone-frame.fullscreen .iphone-home-indicator {
+    display: none;
+}
+
+.iphone-frame.fullscreen .iphone-screen {
+    border-radius: 0;
+}
+
+.iphone-frame.fullscreen .iphone-screen iframe {
+    border-radius: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .preview-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .desktop-preview,
+    .iphone-preview {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .preview-container {
+        padding: 10px;
+        gap: 20px;
+    }
+    
+    .iphone-frame {
+        width: 240px;
+        height: 490px;
+    }
+    
+    .iphone-frame.landscape {
+        width: 490px;
+        height: 240px;
+    }
+    
+    .desktop-preview .chatbot-container {
+        max-width: 100%;
+        height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .iphone-frame {
+        width: 200px;
+        height: 410px;
+    }
+    
+    .iphone-frame.landscape {
+        width: 410px;
+        height: 200px;
+    }
+    
+    .control-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    
+    .control-btn i {
+        font-size: 14px;
+    }
+}
+
+/* Animation for iPhone frame */
+.iphone-frame {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Loading animation for iframe */
+.iphone-screen::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 5;
+}
+
+.iphone-screen.loaded::before {
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Enhanced shadows and depth */
+.iphone-frame {
+    box-shadow: 
+        0 0 0 2px #333,
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 40px 80px rgba(0, 0, 0, 0.2),
+        inset 0 0 0 2px #000,
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Glass morphism effect for controls */
+.control-btn {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Status indicators */
+.iphone-frame::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 8px;
+    height: 8px;
+    background: #4CAF50;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.2);
+    }
+} 

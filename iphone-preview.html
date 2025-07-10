@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot - iPhone Preview</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/iphone-preview.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="preview-container">
+        <!-- Left side - Original chatbot -->
+        <div class="desktop-preview">
+            <h2>Desktop Version</h2>
+            <div class="chatbot-container">
+                <!-- Header -->
+                <div class="chatbot-header">
+                    <div class="bot-info">
+                        <div class="bot-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="bot-details">
+                            <h3>AI Assistant</h3>
+                            <span class="status">Online</span>
+                        </div>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-icon" id="minimizeBtn">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button class="btn-icon" id="closeBtn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chat Messages -->
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <p>Hello! I'm your AI assistant. How can I help you today?</p>
+                            <span class="message-time">Just now</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions" id="quickActions">
+                    <button class="quick-action-btn" data-action="help">Help</button>
+                    <button class="quick-action-btn" data-action="weather">Weather</button>
+                    <button class="quick-action-btn" data-action="joke">Tell a joke</button>
+                    <button class="quick-action-btn" data-action="time">What time is it?</button>
+                </div>
+
+                <!-- Input Area -->
+                <div class="chat-input-area">
+                    <div class="input-container">
+                        <input type="text" id="messageInput" placeholder="Type your message here..." maxlength="500">
+                        <button class="send-btn" id="sendBtn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="input-actions">
+                        <button class="btn-icon" id="attachBtn" title="Attach file">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <button class="btn-icon" id="emojiBtn" title="Emoji">
+                            <i class="fas fa-smile"></i>
+                        </button>
+                        <button class="btn-icon" id="voiceBtn" title="Voice message">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right side - iPhone preview -->
+        <div class="iphone-preview">
+            <h2>iPhone Preview</h2>
+            <div class="iphone-frame">
+                <!-- iPhone notch -->
+                <div class="iphone-notch"></div>
+                
+                <!-- iPhone screen -->
+                <div class="iphone-screen">
+                    <iframe src="index.html" frameborder="0"></iframe>
+                </div>
+                
+                <!-- iPhone home indicator -->
+                <div class="iphone-home-indicator"></div>
+            </div>
+            
+            <!-- iPhone controls -->
+            <div class="iphone-controls">
+                <button class="control-btn" id="refreshBtn">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh
+                </button>
+                <button class="control-btn" id="fullscreenBtn">
+                    <i class="fas fa-expand"></i>
+                    Fullscreen
+                </button>
+                <button class="control-btn" id="rotateBtn">
+                    <i class="fas fa-redo"></i>
+                    Rotate
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/chatbot.js"></script>
+    <script src="js/iphone-preview.js"></script>
+</body>
+</html> 
