@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chatbot</title>
+    <title>MatchOracle - Football Prediction AI</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -13,11 +13,11 @@
         <div class="chatbot-header">
             <div class="bot-info">
                 <div class="bot-avatar">
-                    <i class="fas fa-robot"></i>
+                    <i class="fas fa-futbol"></i>
                 </div>
                 <div class="bot-details">
-                    <h3>AI Assistant</h3>
-                    <span class="status">Online</span>
+                    <h3>MatchOracle</h3>
+                    <span class="status">Football Prediction AI</span>
                 </div>
             </div>
             <div class="header-actions">
@@ -34,10 +34,10 @@
         <div class="chat-messages" id="chatMessages">
             <div class="message bot-message">
                 <div class="message-avatar">
-                    <i class="fas fa-robot"></i>
+                    <i class="fas fa-futbol"></i>
                 </div>
                 <div class="message-content">
-                    <p>Hello! I'm your AI assistant. How can I help you today?</p>
+                    <p>Welcome to MatchOracle! I'm your specialized AI for football match analysis and predictions. Ask me about upcoming fixtures, team form, or get detailed predictions with probabilities and explanations.</p>
                     <span class="message-time">Just now</span>
                 </div>
             </div>
@@ -45,29 +45,40 @@
 
         <!-- Quick Actions -->
         <div class="quick-actions" id="quickActions">
-            <button class="quick-action-btn" data-action="help">Help</button>
-            <button class="quick-action-btn" data-action="weather">Weather</button>
-            <button class="quick-action-btn" data-action="joke">Tell a joke</button>
-            <button class="quick-action-btn" data-action="time">What time is it?</button>
+            <button class="quick-action-btn" data-action="upcoming">Upcoming Matches</button>
+            <button class="quick-action-btn" data-action="psl">PSL Fixtures</button>
+            <button class="quick-action-btn" data-action="premier">Premier League</button>
+            <button class="quick-action-btn" data-action="help">How to Use</button>
+        </div>
+
+        <!-- Fixture Search -->
+        <div class="fixture-search" id="fixtureSearch">
+            <div class="search-container">
+                <input type="text" id="teamSearch" placeholder="Search teams (e.g., Orlando Pirates, Kaizer Chiefs)" maxlength="100">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
         </div>
 
         <!-- Input Area -->
         <div class="chat-input-area">
             <div class="input-container">
-                <input type="text" id="messageInput" placeholder="Type your message here..." maxlength="500">
+                <input type="text" id="messageInput" placeholder="Ask about fixtures, teams, or get predictions..." maxlength="500">
                 <button class="send-btn" id="sendBtn">
                     <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
             <div class="input-actions">
-                <button class="btn-icon" id="attachBtn" title="Attach file">
-                    <i class="fas fa-paperclip"></i>
+                <button class="btn-icon" id="predictionBtn" title="Get Prediction">
+                    <i class="fas fa-chart-line"></i>
                 </button>
-                <button class="btn-icon" id="emojiBtn" title="Emoji">
-                    <i class="fas fa-smile"></i>
+                <button class="btn-icon" id="statsBtn" title="Team Stats">
+                    <i class="fas fa-chart-bar"></i>
                 </button>
-                <button class="btn-icon" id="voiceBtn" title="Voice message">
-                    <i class="fas fa-microphone"></i>
+                <button class="btn-icon" id="newsBtn" title="Latest News">
+                    <i class="fas fa-newspaper"></i>
                 </button>
             </div>
         </div>
@@ -75,7 +86,22 @@
 
     <!-- Floating Chat Button -->
     <div class="floating-chat-btn" id="floatingChatBtn">
-        <i class="fas fa-comments"></i>
+        <i class="fas fa-futbol"></i>
+    </div>
+
+    <!-- Prediction Modal -->
+    <div class="prediction-modal" id="predictionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Match Prediction</h3>
+                <button class="close-modal" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Prediction content will be inserted here -->
+            </div>
+        </div>
     </div>
 
     <script src="js/chatbot.js"></script>
